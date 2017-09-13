@@ -5,12 +5,12 @@ RLRDRDULULUDLUDRDRLUDLDLLUDURULDDDUDLRURLLRLRLDLDRLDURDLRRURLULLULURLLDRRDRLUDRL
 ULUDLLUDDULRUURDRURDUDUDLUURDDDRRLUDURURDRURRLDRDURLRLLRRDDRRDRRRUULURUDURUDULRRRRDDLDURRLRRDUDDDRLLLULDRLRLURRDUURDURRRURRDLUDUDDRLDLURRRDDRLLRDRDDRDURRRRLURRLUDDURRULRUDUDULDRUDDRULLUUULDURRRLDRULLURULLRUDLDUDDLDULDLUUDRULULDLLDRULLRUULDUDUUDRLRRLDLUULUDLLDDRLRRDDLLURURDULRRDDRURDRLRLULDLDURULLUUUDURURDLDUDDDDUUULUDLUURRULLDLRLURDLURLRLDDURRLDDRRRDUUULLUULDLLDLLDDRLRRUDLULDRLULDULULRRLRULUUURURUUURDUUDDURLLUDDRLRDDLUURRUULRDLDDRLULUULRDRURLUURDRDUURUDLRR'
 
 keypad = [
-          [nil,nil,1,nil,nil],
-          [nil,2,3,4,nil],
-          [5,6,7,8,9],
-          [nil,'A','B','C',nil],
-          [nil, nil,'D',nil,nil]
-         ]
+  [nil,nil,1,nil,nil],
+  [nil,2,3,4,nil],
+  [5,6,7,8,9],
+  [nil,'A','B','C',nil],
+  [nil, nil,'D',nil,nil]
+]
 
 #what needs to be found
 bathroom_code = []
@@ -28,13 +28,13 @@ rows.each do |row|
   row.split("").each do |character|
     case character
     when 'U'
-      y > 0 && keypad[y-1][x] != nil ? y = y-1 : y
+      y > 0 && keypad[y - 1][x] != nil ? y -= 1 : y
     when 'D'
-      y < 4 && keypad[y+1][x] != nil ? y = y+1 : y
+      y < 4 && keypad[y + 1][x] != nil ? y += 1 : y
     when 'L'
-      x > 0 && keypad[y][x-1] != nil ? x = x-1 : x
+      x > 0 && keypad[y][x - 1] != nil ? x -= 1 : x
     when 'R'
-      x < 4 && keypad[y][x+1] != nil ? x = x+1 : x
+      x < 4 && keypad[y][x + 1] != nil ? x += 1 : x
     end
   end
    bathroom_code << keypad[y][x]
